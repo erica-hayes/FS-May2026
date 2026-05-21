@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Site</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        
+        @media (max-width: 575.98px) {
+            .navbar {
+                background-color: #93c5fa !important;
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 991.98px) {
+            .navbar {
+                background-color: #28a745 !important;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .navbar {
+                background-color: #343a40 !important;
+            }
+        }
+        
+        .navbar-nav .nav-link {
+            color: white !important;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff !important;
+        }
+        
+        .jumbotron {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=400&fit=crop') center/cover;
+            color: white;
+            padding: 100px 20px;
+            margin-bottom: 0;
+        }
+        
+        .jumbotron h1 {
+            font-weight: bold;
+            font-size: 3rem;
+        }
+        
+        .jumbotron p {
+            font-size: 1.25rem;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card img {
+            object-fit: cover;
+            height: 200px;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .card-text.price {
+            font-size: 1.5rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .products-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+        
+        footer h5 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #495057;
+            margin-top: 30px;
+            padding-top: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 399px) {
+            .card-columns {
+                column-count: 1;
+            }
+        }
+        
+        @media (min-width: 400px) {
+            .product-cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 399px) {
+            .product-cards {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">
+                <span style="font-weight: bold; font-size: 1.5rem;">Store</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron" id="home">
+        <div class="container">
+            <h1 class="display-4">Welcome</h1>
+            <p class="lead">Find what you need, when you need it.</p>
+            <a class="btn btn-light btn-lg" href="#categories" role="button">Start Shopping</a>
+        </div>
+    </div>
+
+    <div class="products-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">Products</h2>
+            
+            <div class="product-cards">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" class="card-img-top" alt="Wireless Headphones">
+                    <div class="card-body">
+                        <h5 class="card-title">Wireless Headphones</h5>
+                        <p class="card-text">Great sound quality, comfortable to wear.</p>
+                        <p class="card-text price">$79.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop" class="card-img-top" alt="Smart Watch">
+                    <div class="card-body">
+                        <h5 class="card-title">Smart Watch</h5>
+                        <p class="card-text">Track fitness and stay connected.</p>
+                        <p class="card-text price">$199.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=300&fit=crop" class="card-img-top" alt="Camera">
+                    <div class="card-body">
+                        <h5 class="card-title">Camera</h5>
+                        <p class="card-text">Good for photos and video. Includes 4K recording.</p>
+                        <p class="card-text price">$599.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop" class="card-img-top" alt="Sunglasses">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunglasses</h5>
+                        <p class="card-text">UV protection. Available in several styles.</p>
+                        <p class="card-text price">$129.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop" class="card-img-top" alt="Backpack">
+                    <div class="card-body">
+                        <h5 class="card-title">Backpack</h5>
+                        <p class="card-text">Durable and spacious. Good for travel or everyday use.</p>
+                        <p class="card-text price">$89.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" class="card-img-top" alt="Portable Speaker">
+                    <div class="card-body">
+                        <h5 class="card-title">Speaker</h5>
+                        <p class="card-text">Waterproof and portable. Good battery life.</p>
+                        <p class="card-text price">$59.99</p>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="py-5" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>We offer a wide selection of products at good prices.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Fast shipping and friendly customer service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h5>Email</h5>
+                    <p><a href="mailto:info@store.com">info@store.com</a></p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Phone</h5>
+                    <p><a href="tel:+1555123456">(123) 456-7890</a></p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Address</h5>
+                    <p>123 Main Street, City, xxx xxx</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

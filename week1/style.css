@@ -1,0 +1,31 @@
+background {
+    background-color: lightblue;
+}
+table {
+   background-color: rgb(231, 231, 231);
+   border: black 2px solid;
+}
+
+th {
+    padding: 8px;
+    background-color: rgb(85, 94, 131);
+    color: white;
+    border: black 2px solid;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border: black 2px solid;
+}
+
+p {
+    color: red;
+    background-color: aqua;
+}
+
+.img {
+    width: 425px;
+    height: 300px;
+}
+
