@@ -1,0 +1,68 @@
+<h2>Tasks</h2>
+
+<div class="well">
+  <h4>Filter tasks</h4>
+  <div class="row" style="margin-bottom: 10px">
+    <div class="col-sm-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Label contains..."
+        [(ngModel)]="filterLabel"
+      />
+      <button class="btn btn-default btn-block" style="margin-top: 8px" (click)="filterByLabel()">
+        By Label
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <select class="form-control" [(ngModel)]="filterPriority">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <button
+        class="btn btn-default btn-block"
+        style="margin-top: 8px"
+        (click)="filterByPriority()"
+      >
+        By Priority
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <input type="date" class="form-control" [(ngModel)]="filterDueDate" />
+      <button
+        class="btn btn-default btn-block"
+        style="margin-top: 8px"
+        (click)="filterByDueDate()"
+      >
+        By Due Date
+      </button>
+    </div>
+  </div>
+  <button class="btn btn-link" (click)="showAllTasks()">Show all tasks</button>
+</div>
+
+@for (t of tasks; track t.id) {
+  <app-task [task]="t" (edit)="onEditTask($event)"></app-task>
+}
+
+@if (showEditModal && taskToEdit) {
+  <div class="modal fade in" style="display: block; background: rgba(0, 0, 0, 0.5)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" (click)="closeModal()">&times;</button>
+          <h4 class="modal-title">Edit Task</h4>
+        </div>
+        <div class="modal-body">
+          <app-add-task
+            [editTask]="taskToEdit"
+            [isEditMode]="true"
+            (saved)="onTaskSaved()"
+            (cancelled)="closeModal()"
+          ></app-add-task>
+        </div>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>{{ task.label }}</strong>
+    <span class="label label-info pull-right">{{ task.priority }}</span>
+  </div>
+  <div class="panel-body">
+    <p><strong>Due:</strong> {{ task.due_date }}</p>
+    <button type="button" class="btn btn-warning btn-sm" (click)="edit.emit(task)">
+      Edit
+    </button>
+  </div>
+</div>

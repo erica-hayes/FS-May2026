@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+  <div class="form-group">
+    <label for="label">Label</label>
+    <input
+      type="text"
+      class="form-control"
+      id="label"
+      name="label"
+      [(ngModel)]="label"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="priority">Priority</label>
+    <select class="form-control" id="priority" name="priority" [(ngModel)]="priority" required>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date">Date</label>
+    <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" required />
+  </div>
+  <div class="form-group">
+    <label for="time">Time</label>
+    <input type="time" class="form-control" id="time" name="time" [(ngModel)]="time" required />
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!taskForm.form.valid">
+    {{ isEditMode() ? 'Save Changes' : 'Add Task' }}
+  </button>
+  @if (isEditMode()) {
+    <button type="button" class="btn btn-default" style="margin-left: 8px" (click)="onCancel()">
+      Cancel
+    </button>
+  }
+</form>
