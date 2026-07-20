@@ -1,5 +1,5 @@
 import './App.css'
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 
 function reducer(state: number, action: { type: string }) {
   switch (action.type) {
@@ -14,13 +14,35 @@ function reducer(state: number, action: { type: string }) {
 }
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, 0)
+  const [user, setUser] = useState('Harsh')
+  const [age, dispatch] = useReducer(reducer, 0)
+  const [inputValue, setInputValue] = useState('')
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value)
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setUser(inputValue.trim())
+    alert(`Submitted value: ${inputValue}`)
+  }
 
   return (
     <div className="bgColor">
-      <h1>User Age</h1>
-      <p>Current Age: {state}</p>
-      <button onClick={() => dispatch({ type: 'INCREMENT_AGE' })}>Increase Age</button>
+      {user ? <h1>Hello, {user}!</h1> : <h1>Hello Guest!</h1>}
+
+      <h2>User Age</h2>
+      <p>Current Age: {age}</p>
+      <button type="button" onClick={() => dispatch({ type: 'INCREMENT_AGE' })}>
+        Increase Age
+      </button>
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="nameInput">Name:</label>
+        <input id="nameInput" type="text" value={inputValue} onChange={handleChange} />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
